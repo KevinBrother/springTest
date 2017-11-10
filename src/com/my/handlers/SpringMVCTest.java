@@ -1,4 +1,4 @@
-package com.jackie.springmvc.handlers;
+package com.my.handlers;
 
 import java.util.Date;
 

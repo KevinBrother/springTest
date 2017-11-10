@@ -30,6 +30,8 @@
 
 <a href="springmvc/testModelAndView">testModelAndView</a><br/><br/>	
 
+<a href="list">list all employees</a><br/><br/>	
+
 
 </body>
 </html>
