@@ -5,6 +5,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="js/jquery-2.0.3.min.js"></script>
+<script>
+/*     $(function(){
+        $("#testJson").click(function(){
+            var url = this.href;
+            var args = {};
+            $.post(url, args, function(data){
+                for(var i=0; i<data.length; i++){
+                    var id = data[i].id;
+                    var lastName = data[i].lastName;
+                    alert(id + ": " + lastName);
+                }
+            })
+            return false;
+        })
+    }) */
+</script>
 </head>
 <body>
 
@@ -32,6 +49,15 @@
 
 <a href="list">list all employees</a><br/><br/>	
 
+<a href="testJson" id="testJson">testJson</a>
+
+<form action="springmvc/testFileUpload" method="post" enctype="multipart/form-data">
+	File:<input type="file" name="file"/><br/>
+	Desc:<input type="text" name="desc"/><br/>
+	<input type="submit" value="submit"/><br/>
+</form> <br/>
+
+<a href="springmvc/testFileDown">testFileDown</a>
 
 </body>
 </html>

@@ -1,9 +1,18 @@
 package com.my.handlers;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.my.domain.User;
@@ -61,4 +70,29 @@ public class SpringMVCTest {
 		modelAndView.addObject("time", new Date());
 		return modelAndView;
 	}
+	
+	//上传文件
+	@RequestMapping("/testFileUpload")
+	public String testFileUpload(@RequestParam("desc") String desc, @RequestParam("file") MultipartFile file){
+		System.out.println("desc: " + desc + " file: " + file.getOriginalFilename());
+		return "success";
+	}
+	
+	//下载文件
+	@RequestMapping("/testFileDown")
+	public ResponseEntity<byte[]> testFileDown(HttpSession session) throws IOException {
+		byte[] body = null;
+		ServletContext servletContext = session.getServletContext();
+		InputStream in = servletContext.getResourceAsStream("file/abc.txt");
+		body = new byte[in.available()];
+		in.read(body);
+		
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "attachment;filename=abc.txt");
+		HttpStatus statusCode = HttpStatus.OK;
+		ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(body, headers, statusCode);
+		return response;
+	}
+	
+	
 }

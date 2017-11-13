@@ -31,13 +31,13 @@
                     <td>${emp.gender==0?'Female':'Male' }</td>
                     <td>${emp.department.departmentName }</td>
                     <td><a href="emp/${emp.id}">Edit</a></td>
-                    <td><a class="delete" href="emp/${emp.id}">Delete</a></td>
+                    <td><a class="delete" href="delete/${emp.id}">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>
     </c:if>
     <br><br>
     
-    <a href="/input">add a employee</a>
+    <a href="addEmp">add a employee</a>
 </body>
 </html>

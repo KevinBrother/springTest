@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+    <form:form action="/add">
+     	<!-- path 属性对应html表单标签的name属性 -->
+		LastName:<input type="text" name="lastName"/>
+		Email:<input type="text" name="email"/>
+		Gender:<input type="radio" name="gender" value="Female">Female <input type="radio" name="gender" value="Male">Male</label>
+    </form:form>
 </body>
 </html>
